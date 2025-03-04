@@ -11,51 +11,21 @@
 </head>
 
 <body class="flex bg-gray-100">
-    <div id="sidebar-container">
-        <div id="sidebar"
-            class="bg-white text-gray-700 h-full min-h-screen w-16 transition-all duration-300 shadow-md border-r relative">
-            <div class="flex justify-center py-4">
-                <img id="logo" src="../images/logo.png" alt="Logo" class="w-8 transition-all duration-300" />
-            </div>
-            <ul class="space-y-6">
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-clock text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Dashboard</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-envelope text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Pengaduan</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-cogs text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Status</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-file-alt text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Laporan</span>
-                </li>
-            </ul>
-            <div class="absolute bottom-6 left-4 flex items-center space-x-3 cursor-pointer hover:text-gray-500">
-                <i class="fas fa-sign-out-alt text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Logout</span>
-            </div>
-        </div>
-    </div>
-
+    <div id="sidebar-container"></div>
     <div id="main-content" class="flex-1 p-6">
         <div class="bg-white text-center py-4 shadow-md rounded-md mb-4">
             <h1 class="text-2xl font-bold">STATUS PENGADUAN</h1>
         </div>
 
-        <!-- Filter dan Pencarian -->
-        <div class="mb-4 flex justify-between items-center">
-            <input type="text" id="searchInput" placeholder="Cari pengaduan..." class="border px-3 py-2 rounded w-1/3"
-                onkeyup="filterTable()" />
-            <select id="statusFilter" class="border px-3 py-2 rounded" onchange="filterTable()">
-                <option value="">Semua</option>
-                <option value="Selesai">Selesai</option>
-                <option value="Pending">Pending</option>
-            </select>
+        <!-- Filter Rentang Tanggal & Hitungan Hari -->
+        <div class="mb-4 flex items-center space-x-2">
+            <input type="date" id="startDate" class="border px-3 py-2 rounded" onchange="filterByDate()" />
+            <span class="mx-2">sampai</span>
+            <input type="date" id="endDate" class="border px-3 py-2 rounded" onchange="filterByDate()" />
+            <span id="dateDifference" class="text-gray-700 font-semibold"></span>
+            <button onclick="printTable()" class="bg-blue-500 text-white px-4 py-2 rounded">
+                Print
+            </button>
         </div>
 
         <!-- Tabel Data -->
@@ -177,7 +147,7 @@
     </div>
 
     <script src="../js/sidebar.js"></script>
-    <script src="../js/search.js"></script>
+    <script src="../js/tgl_excel.js"></script>
     <script src="../js/pagination.js"></script>
 </body>
 
