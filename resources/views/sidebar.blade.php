@@ -11,12 +11,10 @@
 
 <body class="flex bg-gray-100">
     <!-- Sidebar -->
-    @include('sidebar')
     <div id="sidebar"
         class="bg-white text-gray-700 h-full min-h-screen w-16 transition-all duration-300 shadow-md border-r relative">
         <div class="flex justify-center py-4">
-            <img id="logo" src="../im
-          ages/logo.png" alt="Logo" class="w-8 transition-all duration-300" />
+            <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo" class="w-8 transition-all duration-300" />
         </div>
         <ul class="space-y-6">
             <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
@@ -40,15 +38,17 @@
             <i class="fas fa-sign-out-alt text-xl text-gray-700"></i>
             <span class="hidden text-sm transition-all duration-300">Logout</span>
         </div>
+
+        <!-- Tombol Toggle -->
+        <button id="toggleBtn"
+            class="absolute top-6 left-16 bg-white p-2 rounded-full shadow-md border transition-all duration-300 z-10">
+            <i class="fas fa-chevron-right text-gray-700"></i>
+        </button>
     </div>
 
-    <!-- Tombol Toggle -->
-    <button id="toggleBtn"
-        class="absolute top-6 left-16 bg-white p-2 rounded-full shadow-md border transition-all duration-300 z-10">
-        <i class="fas fa-chevron-right text-gray-700"></i>
-    </button>
 
-    <script src="../js/sidebar.js"></script>
+    <script src="{{ asset('js/sidebar.js') }}" defer></script>
+
 </body>
 
 </html>

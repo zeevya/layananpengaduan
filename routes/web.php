@@ -1,15 +1,19 @@
 <?php
-
-use App\Http\Controllers\PengaduanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengaduanController;
 
-// Redirect halaman utama ke halaman pengaduan
 Route::get('/', function () {
-    return redirect()->route('pengaduan.create');
+    return redirect()->route('login');
 });
 
-// Formulir pengaduan
-Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.create');
+// Route untuk halaman login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Simpan data pengaduan
-Route::post('/pengaduan/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
+// Route untuk halaman pengaduan (Hanya bisa diakses setelah login)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.create');
+    Route::post('/pengaduan/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
+});
