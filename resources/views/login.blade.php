@@ -22,21 +22,21 @@
         <!-- Form Login -->
         <div class="w-1/2 p-10 shadow-xl rounded-lg" style="background-color: #D9D9D9;">
             @if(session('error'))
-            <p class="text-red-500">{{ session('error') }}</p>
+            <p class="text-red-500 text-center font-semibold">{{ session('error') }}</p>
             @endif
 
-            <form action="{{ route('login.submit') }}" method="POST" class="space-y-6">
+            <form action="{{ route('login') }}" method="POST" class="space-y-6">
                 @csrf
                 <div>
                     <label for="nip" class="block text-gray-700 font-semibold">NIP</label>
-                    <input type="number" id="nip" name="nip"
+                    <input type="number" id="nip" name="nip" required
                         class="w-full p-3 border border-gray-400 rounded-lg mt-1 focus:ring focus:ring-gray-500">
                 </div>
 
                 <div>
                     <label for="password" class="block text-gray-700 font-semibold">Password</label>
                     <div class="relative">
-                        <input type="password" id="password" name="password"
+                        <input type="password" id="password" name="password" required
                             class="w-full p-3 border border-gray-400 rounded-lg mt-1 focus:ring focus:ring-gray-500">
                         <button type="button" onclick="togglePassword()"
                             class="absolute inset-y-0 right-3 flex items-center text-gray-700">
@@ -57,15 +57,9 @@
     function togglePassword() {
         const passwordInput = document.getElementById('password');
         const eyeIcon = document.getElementById('eye-icon');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            eyeIcon.classList.remove('fa-eye-slash');
-            eyeIcon.classList.add('fa-eye');
-        } else {
-            passwordInput.type = 'password';
-            eyeIcon.classList.remove('fa-eye');
-            eyeIcon.classList.add('fa-eye-slash');
-        }
+        passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        eyeIcon.classList.toggle('fa-eye-slash');
+        eyeIcon.classList.toggle('fa-eye');
     }
     </script>
 </body>

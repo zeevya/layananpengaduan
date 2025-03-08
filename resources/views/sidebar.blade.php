@@ -17,38 +17,47 @@
             <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo" class="w-8 transition-all duration-300" />
         </div>
         <ul class="space-y-6">
-            <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-clock text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Dashboard</span>
-            </li>
-            <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-envelope text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Pengaduan</span>
-            </li>
-            <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-cogs text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Status</span>
-            </li>
-            <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-file-alt text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Laporan</span>
-            </li>
+            <a href="{{ route('dashboard') }}">
+                <li class="flex items-center space-x-3 px-4 py-6 hover:bg-gray-200 cursor-pointer">
+                    <i class="fas fa-clock text-xl text-gray-700"></i>
+                    <span class="hidden text-sm transition-all duration-300">Dashboard</span>
+                </li>
+            </a>
+            <a href="{{ route('pengaduan.create') }}">
+                <li class="flex items-center space-x-3 px-4 py-6 hover:bg-gray-200 cursor-pointer">
+                    <i class="fas fa-envelope text-xl text-gray-700"></i>
+                    <span class="hidden text-sm transition-all duration-300">Pengaduan</span>
+                </li>
+            </a>
+            <a href="{{ route('status') }}">
+                <li class="flex items-center space-x-3 px-4 py-6 hover:bg-gray-200 cursor-pointer">
+                    <i class="fas fa-cogs text-xl text-gray-700"></i>
+                    <span class="hidden text-sm transition-all duration-300">Status</span>
+                </li>
+            </a>
+            <a href="{{ route('laporan') }}">
+                <li class="flex items-center space-x-3 px-4 py-6 hover:bg-gray-200 cursor-pointer">
+                    <i class="fas fa-file-alt text-xl text-gray-700"></i>
+                    <span class="hidden text-sm transition-all duration-300">Laporan</span>
+                </li>
+            </a>
         </ul>
-        <div class="absolute bottom-6 left-4 flex items-center space-x-3 cursor-pointer hover:text-gray-500">
-            <i class="fas fa-sign-out-alt text-xl text-gray-700"></i>
-            <span class="hidden text-sm transition-all duration-300">Logout</span>
-        </div>
 
-        <!-- Tombol Toggle -->
-        <button id="toggleBtn"
-            class="absolute top-6 left-16 bg-white p-2 rounded-full shadow-md border transition-all duration-300 z-10">
-            <i class="fas fa-chevron-right text-gray-700"></i>
-        </button>
+        <a href="{{ route('logout') }}">
+            <div class="absolute bottom-6 left-4 flex items-center space-x-3 cursor-pointer hover:text-gray-500">
+                <i class="fas fa-sign-out-alt text-xl text-gray-700"></i>
+                <span class="hidden text-sm transition-all duration-300">Logout</span>
+            </div>
+        </a>
     </div>
 
+    <!-- Tombol Toggle -->
+    <button id="toggleBtn"
+        class="absolute top-10 left-10 bg-white p-2 rounded-lg shadow-md border transition-all duration-300 z-5">
+        <i class="fas fa-chevron-right text-gray-700"></i>
+    </button>
 
-    <script src="{{ asset('js/sidebar.js') }}" defer></script>
-
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 
 </html>

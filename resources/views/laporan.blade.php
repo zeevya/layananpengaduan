@@ -152,3 +152,10 @@
 </body>
 
 </html>
+
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+$user = User::where('nip', '12345678')->first(); // Ganti dengan NIP user yang ingin diupdate
+$user->password = Hash::make('passwordbaru'); // Ganti dengan password yang kamu mau
+$user->save();

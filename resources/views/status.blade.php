@@ -11,37 +11,7 @@
 </head>
 
 <body class="flex bg-gray-100">
-    <div id="sidebar-container">
-        <div id="sidebar"
-            class="bg-white text-gray-700 h-full min-h-screen w-16 transition-all duration-300 shadow-md border-r relative">
-            <div class="flex justify-center py-4">
-                <img id="logo" src="../images/logo.png" alt="Logo" class="w-8 transition-all duration-300" />
-            </div>
-            <ul class="space-y-6">
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-clock text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Dashboard</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-envelope text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Pengaduan</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-cogs text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Status</span>
-                </li>
-                <li class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                    <i class="fas fa-file-alt text-xl text-gray-700"></i>
-                    <span class="hidden text-sm transition-all duration-300">Laporan</span>
-                </li>
-            </ul>
-            <div class="absolute bottom-6 left-4 flex items-center space-x-3 cursor-pointer hover:text-gray-500">
-                <i class="fas fa-sign-out-alt text-xl text-gray-700"></i>
-                <span class="hidden text-sm transition-all duration-300">Logout</span>
-            </div>
-        </div>
-    </div>
-
+    @include('sidebar')
     <div id="main-content" class="flex-1 p-6">
         <div class="bg-white text-center py-4 shadow-md rounded-md mb-4">
             <h1 class="text-2xl font-bold">STATUS PENGADUAN</h1>
